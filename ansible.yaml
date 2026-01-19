@@ -53,7 +53,7 @@
 
     - name: Ensure .env file exists with default version
       copy:
-        dest: /my-trader/.env
+        dest: /mytrader/.env
         content: |
           APP_VERSION=latest
         owner: ubuntu

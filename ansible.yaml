@@ -51,16 +51,15 @@
           src: docker-compose.yaml
           dest: /mytrader/docker-compose.yaml
 
-    - name: Pulling latest image from dockerhub
-      command: docker compose pull
+    - name: Pull and recreate containers with latest image
+      command: docker compose up -d --pull always --force-recreate
       args:
         chdir: /mytrader
 
+    - name: Cleanup unused docker resources
+      command: docker system prune -af
 
-    - name: running docker compose file
-      command: docker compose up -d
-      args:
-        chdir: /mytrader
+
 
     - name: Installing nginx
       apt:

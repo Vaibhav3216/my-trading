@@ -51,6 +51,12 @@
           src: docker-compose.yaml
           dest: /mytrader/docker-compose.yaml
 
+    - name: Pulling latest image from dockerhub
+      command: docker compose pull
+      args:
+        chdir: /mytrader
+
+
     - name: running docker compose file
       command: docker compose up -d
       args:

@@ -51,6 +51,17 @@
           src: docker-compose.yaml
           dest: /mytrader/docker-compose.yaml
 
+    - name: Ensure .env file exists with default version
+      copy:
+        dest: /my-trader/.env
+        content: |
+          APP_VERSION=latest
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+        force: no
+
+
     - name: Pull and recreate containers with latest image
       command: docker compose up -d --pull always --force-recreate
       args:

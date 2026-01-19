@@ -1,0 +1,8 @@
+services:
+  app:
+    image: vaibhav8doc/practice:trading
+    ports:
+      - "3001:3000"
+    environment:
+      MYSQL_PASSWORD : 12345
+    
